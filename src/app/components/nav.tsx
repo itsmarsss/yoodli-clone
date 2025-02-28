@@ -3,7 +3,7 @@ import NavItem from "./navItem";
 import Button from "./button";
 import Image from "next/image";
 
-const Nav = () => {
+const Nav: React.FC = () => {
     return (
         <nav className="flex items-center p-4 bg-white sticky top-0 z-50 shadow-md">
             <div className="flex gap-2">

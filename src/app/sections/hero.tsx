@@ -28,12 +28,11 @@ const Hero: React.FC = () => {
 
     return (
         <section
-            className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-5"
+            className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-5 pb-20"
             style={{
                 backgroundImage: "url('/hero_back.svg')",
                 backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundPositionY: "-80px",
+                backgroundPositionY: "bottom",
             }}
         >
             <div className="flex-1">
