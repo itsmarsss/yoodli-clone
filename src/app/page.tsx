@@ -3,6 +3,8 @@ import Carousel from "./sections/carousel";
 import Hero from "./sections/hero";
 import Cases from "./sections/cases";
 import Featured from "./sections/featured";
+import Demo from "./sections/demo";
+import HowToUse from "./sections/howtouse";
 
 export default function Home() {
     return (
@@ -22,6 +24,8 @@ export default function Home() {
             <Carousel />
             <Cases />
             <Featured />
+            <Demo />
+            <HowToUse />
         </>
     );
 }
