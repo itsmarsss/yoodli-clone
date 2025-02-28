@@ -28,14 +28,14 @@ const Hero: React.FC = () => {
 
     return (
         <section
-            className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-5 pb-20"
+            className="flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-5 pb-40"
             style={{
                 backgroundImage: "url('/hero_back.svg')",
                 backgroundSize: "cover",
                 backgroundPositionY: "bottom",
             }}
         >
-            <div className="flex-1">
+            <div className="flex-1 max-w-[750px]">
                 <h1 className="text-[40px] font-bold">AI Roleplays for</h1>
                 <h2 className="text-[40px] font-bold mt-2">
                     <div
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
                     </span>
                 </div>
             </div>
-            <div className="mt-8 md:mt-0 w-[455px] h-[390px]">
+            <div className="mt-8 md:mt-0 w-[400px] h-[390px]">
                 <video
                     src="/hero_video.webm"
                     autoPlay
