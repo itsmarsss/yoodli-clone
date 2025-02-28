@@ -14,12 +14,12 @@ interface CaseProps {
 
 const Case: React.FC<CaseProps> = ({ image, title, cards }) => {
     return (
-        <div className="relative">
-            <div className="text-center z-1 my-5 p-6 bg-white z-2 rounded-lg cursor-pointer duration-250 ease-linear hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] shadow-[0_0_0_0_#524ffc] hover:shadow-[-8px_8px_0_0_#524ffc]">
+        <div className="relative max-w-[368px]">
+            <div className="text-center z-1 my-5 p-6 bg-white z-2 rounded-xl cursor-pointer duration-250 ease-linear hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] shadow-[0_0_0_0_#524ffc] hover:shadow-[-8px_8px_0_0_#524ffc]">
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-auto rounded-[7px]"
+                    className="w-full h-auto rounded-md"
                 />
                 <div className="p-[12px]">
                     <h2 className="text-black text-[20px] font-bold text-left overflow-hidden line-clamp-3 mb-5">

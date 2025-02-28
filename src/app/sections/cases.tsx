@@ -71,7 +71,7 @@ const casesData = [
 const Cases: React.FC = () => {
     return (
         <div className="bg-blue-950 text-white py-[80px] px-[30px]">
-            <div className="flex justify-between items-center mb-5">
+            <div className="flex justify-around items-center mb-5">
                 <h2 className="text-[24px] font-bold">
                     Check out our case studies
                 </h2>
@@ -79,7 +79,7 @@ const Cases: React.FC = () => {
                     See all <ChevronRight size={20} />
                 </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="flex flex-col md:flex-row gap-5 justify-center">
                 {casesData.map((caseItem, index) => (
                     <Case
                         key={index}
