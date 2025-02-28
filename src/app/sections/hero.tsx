@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Button from "../components/button";
+import { Check } from "lucide-react";
 
 const phrases = [
     "pitch certification",
@@ -93,10 +94,10 @@ const Hero: React.FC = () => {
                     />
                 </div>
                 <div className="flex items-center mt-6">
-                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center mr-2">
-                        <span className="text-white font-bold">✓</span>
+                    <div className="w-4 h-4 rounded-full bg-zinc-400 flex items-center justify-center mr-3">
+                        <Check size={12} strokeWidth={3} color="white" />
                     </div>
-                    <span className="text-sm">
+                    <span className="text-[16px] text-zinc-400 font-[700]">
                         SOC 2 Type 2 certified and GDPR compliant
                     </span>
                 </div>
