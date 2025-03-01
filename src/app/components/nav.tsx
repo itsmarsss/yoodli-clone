@@ -45,7 +45,7 @@ const Nav: React.FC = () => {
                     </button>
 
                     <div className="hidden lg:flex items-center w-full">
-                        <div className="flex space-x-6 lg:space-x-13 ml-10">
+                        <div className="flex space-x-6 lg:space-x-12 ml-10">
                             <NavItem
                                 text="FOR BUSINESS"
                                 more={[

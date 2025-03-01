@@ -50,55 +50,102 @@ const Roleplay = () => {
             });
     }, []);
 
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <>
             <div className="p-20 pb-0 mt-25 bg-[#f6f8ff]">
                 <h2 className="text-center text-[28px] font-bold mb-10">
                     How Yoodli AI Roleplays work
                 </h2>
-                <div className="flex mx-auto max-w-[1300px] h-[2100px]">
-                    <div
-                        className="relative w-[578px] h-[464px] sticky top-[50%] transform translate-y-[-50%] left-0 ml-32 mt-80 p-[64px] rounded-xl"
-                        style={{
-                            background:
-                                "linear-gradient(72deg, #eff5fd 0%, #eeeefe 79%)",
-                        }}
-                    >
+
+                {windowWidth > 1470 && (
+                    <div className="flex mx-auto max-w-[1300px] h-[2100px]">
+                        <div
+                            className="relative w-[578px] h-[464px] sticky top-[50%] transform translate-y-[-50%] left-0 ml-32 mt-80 p-[64px] rounded-xl"
+                            style={{
+                                background:
+                                    "linear-gradient(72deg, #eff5fd 0%, #eeeefe 79%)",
+                            }}
+                        >
+                            {images.map((src, index) => (
+                                <div
+                                    key={index}
+                                    className={`absolute top-[64px] left-[64px] w-[448px] h-[333px] transition-opacity duration-500 ${
+                                        index === activeCard
+                                            ? "opacity-100"
+                                            : "opacity-0"
+                                    }`}
+                                >
+                                    <Image
+                                        src={src}
+                                        alt={`Photo ${index + 1}`}
+                                        layout="fill"
+                                        className="rounded-lg w-[448px] h-[333px]"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        <div className="h-screen space-y-120 p-5 mt-60 transform translate-x-[-60px]">
+                            {cardTexts.map((cardText, index) => (
+                                <div
+                                    key={index}
+                                    className="w-[560px] h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
+                                    data-index={index}
+                                >
+                                    <h3 className="mb-[16px] font-bold text-[28px]">
+                                        {cardText.title}
+                                    </h3>
+                                    <p className="text-[16px] font-[500]">
+                                        {cardText.desc}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                {windowWidth <= 1470 && (
+                    <div className="w-full h-fit flex flex-col gap-10 mb-35 justify-center align-center max-w-[600px] mx-auto">
                         {images.map((src, index) => (
-                            <div
-                                key={index}
-                                className={`absolute top-[64px] left-[64px] w-[448px] h-[333px] transition-opacity duration-500 ${
-                                    index === activeCard
-                                        ? "opacity-100"
-                                        : "opacity-0"
-                                }`}
-                            >
-                                <Image
-                                    src={src}
-                                    alt={`Photo ${index + 1}`}
-                                    layout="fill"
-                                    className="rounded-lg w-[448px] h-[333px]"
-                                />
+                            <div>
+                                <div
+                                    key={index}
+                                    className="grid place-item-center w-full p-5 pb-0 rounded-2xl shadow-sm"
+                                    style={{
+                                        background:
+                                            "linear-gradient(72deg, #eff5fd 0%, #eeeefe 79%)",
+                                    }}
+                                >
+                                    <Image
+                                        src={src}
+                                        alt={`Photo ${index + 1}`}
+                                        className="rounded-lg w-fit"
+                                        width={1000}
+                                        height={100}
+                                    />
+                                </div>
+                                <div
+                                    key={index + 1}
+                                    className="w-full h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
+                                    data-index={index}
+                                >
+                                    <h3 className="mb-[16px] font-bold text-[20px] lg:text-[28px]">
+                                        {cardTexts[index].title}
+                                    </h3>
+                                    <p className="text-[12px] lg:text-[16px] font-[500]">
+                                        {cardTexts[index].desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
-                    <div className="h-screen space-y-120 p-5 mt-60 transform translate-x-[-60px]">
-                        {cardTexts.map((cardText, index) => (
-                            <div
-                                key={index}
-                                className="w-[560px] h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
-                                data-index={index}
-                            >
-                                <h3 className="mb-[16px] font-bold text-[28px]">
-                                    {cardText.title}
-                                </h3>
-                                <p className="text-[16px] font-[500]">
-                                    {cardText.desc}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                )}
             </div>
             <div className="overflow-hidden w-full h-[300px] mt-[-150px]">
                 <div
