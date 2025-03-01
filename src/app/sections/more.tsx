@@ -3,7 +3,7 @@ import ScrollAnimation from "../components/ScrollAnimation";
 
 const More = () => {
     return (
-        <section className="flex flex-row justify-center align-center gap-20 py-16 md:py-24 px-4">
+        <section className="flex flex-row justify-center align-center lg:gap-20 py-16 md:py-24 px-4">
             <ScrollAnimation
                 type="slide"
                 direction="right"

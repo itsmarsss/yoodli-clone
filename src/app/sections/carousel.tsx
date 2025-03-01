@@ -94,7 +94,7 @@ const Carousel = () => {
             <ScrollAnimation className="text-[28px] font-bold text-center my-10 mt-20 text-blue-950">
                 Trusted by the world&apos;s best companies...
             </ScrollAnimation>
-            <ScrollAnimation className="overflow-hidden w-full">
+            <ScrollAnimation className="overflow-x-hidden w-full">
                 <div
                     className="flex flex-row h-[100] gap-20 justify-center items-center"
                     style={{
@@ -490,7 +490,7 @@ const Carousel = () => {
                 ...and their employees
             </ScrollAnimation>
 
-            <ScrollAnimation className="max-w-[600px] mx-auto bg-white rounded-lg p-8 my-12 mb-20 border border-[#524ffc] shadow-[8px_8px_0_0_#524ffc] transform scale-[0.75] md:scale-[1] duration-500 overflow-hidden">
+            <ScrollAnimation className="max-w-[600px] mx-auto bg-white rounded-lg p-8 mt-0 mb-20 border border-[#524ffc] shadow-[8px_8px_0_0_#524ffc] transform scale-[0.75] md:scale-[1] duration-500">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={index}

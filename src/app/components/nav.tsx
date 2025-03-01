@@ -19,22 +19,24 @@ const Nav: React.FC = () => {
             setScrolled(window.scrollY > 50);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const navVariants = {
         hidden: { y: -100 },
-        visible: { 
+        visible: {
             y: 0,
-            transition: { type: 'spring', stiffness: 100, damping: 20 }
-        }
+            transition: { type: "spring", stiffness: 100, damping: 20 },
+        },
     };
 
     return (
         <>
-            <motion.nav 
-                className={`bg-white sticky top-0 z-50 shadow-md px-2 transition-all duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}
+            <motion.nav
+                className={`bg-white sticky top-0 z-50 shadow-md px-2 transition-all duration-300 ${
+                    scrolled ? "shadow-lg" : "shadow-sm"
+                }`}
                 initial="hidden"
                 animate="visible"
                 variants={navVariants}

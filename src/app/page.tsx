@@ -29,7 +29,7 @@ export default function Home() {
     }, []);
 
     return (
-        <>
+        <div className="w-screen overflow-x-clip">
             <Nav />
             <Hero />
             <Carousel />
@@ -41,6 +41,6 @@ export default function Home() {
             <Pitch />
             <More />
             <Footer />
-        </>
+        </div>
     );
 }
