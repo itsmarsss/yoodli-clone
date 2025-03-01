@@ -147,7 +147,7 @@ export default function Footer() {
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    className="w-5 h-5 inline"
+                                    className="w-5 h-5 inline mr-1 mb-[2px]"
                                 >
                                     <path
                                         strokeLinecap="round"
@@ -170,7 +170,7 @@ export default function Footer() {
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    className="w-5 h-5 inline"
+                                    className="w-5 h-5 inline mr-1 mb-[2px]"
                                 >
                                     <path
                                         strokeLinecap="round"
@@ -193,7 +193,7 @@ export default function Footer() {
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    className="w-5 h-5 inline text-green-500"
+                                    className="w-5 h-5 inline mr-1 mb-[2px]"
                                 >
                                     <path
                                         strokeLinecap="round"
