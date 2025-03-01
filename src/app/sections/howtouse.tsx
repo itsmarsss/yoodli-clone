@@ -71,7 +71,7 @@ const HowToUse = () => {
     return (
         <div className="p-5 bg-white">
             <ScrollAnimation
-                type="fade"
+                type="slide"
                 direction="up"
                 delay={0.1}
                 duration={0.5}
@@ -81,7 +81,7 @@ const HowToUse = () => {
                 </h2>
             </ScrollAnimation>
             <ScrollAnimation
-                type="fade"
+                type="slide"
                 direction="up"
                 delay={0.2}
                 duration={0.5}

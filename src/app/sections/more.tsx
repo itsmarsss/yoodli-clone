@@ -5,7 +5,7 @@ const More = () => {
     return (
         <section className="flex flex-row justify-center align-center gap-20 py-16 md:py-24 px-4">
             <ScrollAnimation
-                type="fade"
+                type="slide"
                 direction="right"
                 delay={0.1}
                 duration={0.5}
@@ -158,7 +158,7 @@ const More = () => {
             </ScrollAnimation>
             <div className="w-[456px]">
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="left"
                     delay={0.2}
                     duration={0.5}
@@ -170,7 +170,7 @@ const More = () => {
 
                 <div className="space-y-6 md:space-y-10 max-w-xl">
                     <ScrollAnimation
-                        type="fade"
+                        type="slide"
                         direction="left"
                         delay={0.3}
                         duration={0.5}
@@ -189,7 +189,7 @@ const More = () => {
                         </div>
                     </ScrollAnimation>
                     <ScrollAnimation
-                        type="fade"
+                        type="slide"
                         direction="left"
                         delay={0.4}
                         duration={0.5}
@@ -208,7 +208,7 @@ const More = () => {
                         </div>
                     </ScrollAnimation>
                     <ScrollAnimation
-                        type="fade"
+                        type="slide"
                         direction="left"
                         delay={0.5}
                         duration={0.5}

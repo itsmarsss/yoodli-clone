@@ -13,7 +13,7 @@ const Demo = () => {
 
     return (
         <div className="px-[32px] py-5 mt-20 h-fit">
-            <ScrollAnimation type="fade" direction="up">
+            <ScrollAnimation type="slide" direction="up">
                 <h2 className="text-center text-[28px] font-bold mt-10 mb-10">
                     Check out a demo in action
                 </h2>
@@ -65,7 +65,7 @@ const Demo = () => {
 
             <div className="transform scale-[0.75] sm:scale-[1] flex flex-col lg:flex-row gap-5 lg:gap-15 justify-center items-center mt-30">
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.1}
                     duration={0.5}
@@ -91,7 +91,7 @@ const Demo = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.2}
                     duration={0.5}
@@ -119,7 +119,7 @@ const Demo = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.3}
                     duration={0.5}

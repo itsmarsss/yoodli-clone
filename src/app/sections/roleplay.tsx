@@ -6,7 +6,8 @@ import Button from "../components/button";
 import ScrollAnimation from "../components/ScrollAnimation";
 
 const Roleplay = () => {
-    const [activeCard, setActiveCard] = useState(0);
+    // Start with -1 so that before any card reaches y=0, image 0 is visible.
+    const [activeCard, setActiveCard] = useState(-1);
     const images = [
         "/roleplay/yoodli-HIW2.webp",
         "/roleplay/yoodli-HIW3.webp",
@@ -28,27 +29,29 @@ const Roleplay = () => {
         },
     ];
 
+    // Scroll listener: trigger when card's top reaches y = 0.
     useEffect(() => {
-        const cards = document.querySelectorAll(".card");
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = Number(
-                            entry.target.getAttribute("data-index")
-                        );
-                        setActiveCard(index);
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        cards.forEach((card) => observer.observe(card));
-        return () =>
+        const handleScroll = () => {
+            const cards = document.querySelectorAll(".card");
+            let newActiveCard = -1;
             cards.forEach((card) => {
-                observer.unobserve(card);
+                const rect = card.getBoundingClientRect();
+                // When the card's top is at or above y=0, update activeCard.
+                if (rect.top <= 0) {
+                    newActiveCard = Math.max(
+                        newActiveCard,
+                        Number(card.getAttribute("data-index"))
+                    );
+                }
             });
+            setActiveCard(newActiveCard);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        // Run initially in case the page is already scrolled.
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -58,7 +61,6 @@ const Roleplay = () => {
             const handleResize = () => setWindowWidth(window.innerWidth);
             window.addEventListener("resize", handleResize);
             handleResize();
-
             return () => window.removeEventListener("resize", handleResize);
         }
     }, []);
@@ -67,7 +69,7 @@ const Roleplay = () => {
         <>
             <div className="py-20 pb-0 mt-25 bg-[#f6f8ff]">
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.1}
                     duration={0.5}
@@ -87,73 +89,102 @@ const Roleplay = () => {
                             }}
                         >
                             {images.map((src, index) => (
-                                <div
-                                    key={"image-" + index}
-                                    className={`absolute top-[64px] left-[64px] w-[448px] h-[333px] transition-opacity duration-500 ${
-                                        index === activeCard
-                                            ? "opacity-100"
-                                            : "opacity-0"
-                                    }`}
+                                <ScrollAnimation
+                                    key={index}
+                                    type="fade"
+                                    delay={0.1 * index}
+                                    duration={0.5}
                                 >
-                                    <Image
-                                        src={src}
-                                        alt={cardTexts[index].title}
-                                        layout="fill"
-                                        className="rounded-lg w-[448px] h-[333px]"
-                                    />
-                                </div>
+                                    <div
+                                        className={`absolute top-[64px] left-[64px] w-[448px] h-[333px] transition-opacity duration-500 ${
+                                            // Show only the image corresponding to the next card (activeCard + 1).
+                                            index === activeCard + 1
+                                                ? "opacity-100"
+                                                : "opacity-0"
+                                        }`}
+                                    >
+                                        <Image
+                                            src={src}
+                                            alt={cardTexts[index].title}
+                                            layout="fill"
+                                            className="rounded-lg w-[448px] h-[333px]"
+                                        />
+                                    </div>
+                                </ScrollAnimation>
                             ))}
                         </div>
                         <div className="h-screen space-y-120 p-5 mt-60 transform translate-x-[-60px]">
                             {cardTexts.map((cardText, index) => (
-                                <div
-                                    key={"card-" + index}
-                                    className="w-[560px] h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
-                                    data-index={index}
+                                <ScrollAnimation
+                                    key={index}
+                                    type="slide"
+                                    direction="left"
+                                    delay={0.1 * index}
+                                    duration={0.5}
                                 >
-                                    <h3 className="mb-[16px] font-bold text-[28px]">
-                                        {cardText.title}
-                                    </h3>
-                                    <p className="text-[16px] font-[500]">
-                                        {cardText.desc}
-                                    </p>
-                                </div>
+                                    <div
+                                        className="w-[560px] h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
+                                        data-index={index}
+                                    >
+                                        <h3 className="mb-[16px] font-bold text-[28px]">
+                                            {cardText.title}
+                                        </h3>
+                                        <p className="text-[16px] font-[500]">
+                                            {cardText.desc}
+                                        </p>
+                                    </div>
+                                </ScrollAnimation>
                             ))}
                         </div>
                     </div>
                 )}
+
                 {windowWidth <= 1320 && (
                     <div className="px-10 w-full h-fit flex flex-col gap-10 mb-35 justify-center align-center max-w-[600px] mx-auto">
                         {images.map((src, index) => (
                             <div key={"image-cont-" + index}>
-                                <div
-                                    key={"image-" + index}
-                                    className="grid place-item-center w-full p-5 pb-0 rounded-2xl shadow-sm"
-                                    style={{
-                                        background:
-                                            "linear-gradient(72deg, #eff5fd 0%, #eeeefe 79%)",
-                                    }}
+                                <ScrollAnimation
+                                    key={index}
+                                    type="slide"
+                                    direction="right"
+                                    delay={0.1}
+                                    duration={0.5}
                                 >
-                                    <Image
-                                        src={src}
-                                        alt={cardTexts[index].title}
-                                        className="rounded-lg w-fit"
-                                        width={1000}
-                                        height={100}
-                                    />
-                                </div>
-                                <div
-                                    key={"card-" + index}
-                                    className="w-full h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
-                                    data-index={index}
+                                    <div
+                                        className="grid place-item-center w-full p-5 pb-0 rounded-2xl shadow-sm"
+                                        style={{
+                                            background:
+                                                "linear-gradient(72deg, #eff5fd 0%, #eeeefe 79%)",
+                                        }}
+                                    >
+                                        <Image
+                                            src={src}
+                                            alt={cardTexts[index].title}
+                                            className="rounded-lg w-fit"
+                                            width={1000}
+                                            height={100}
+                                        />
+                                    </div>
+                                </ScrollAnimation>
+
+                                <ScrollAnimation
+                                    type="slide"
+                                    direction="left"
+                                    delay={0.2}
+                                    duration={0.5}
                                 >
-                                    <h3 className="mb-[16px] font-bold text-[20px] lg:text-[28px]">
-                                        {cardTexts[index].title}
-                                    </h3>
-                                    <p className="text-[12px] lg:text-[16px] font-[500]">
-                                        {cardTexts[index].desc}
-                                    </p>
-                                </div>
+                                    <div
+                                        className="w-full h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
+                                        data-index={index}
+                                    >
+                                        <h3 className="mb-[16px] font-bold text-[20px] lg:text-[28px]">
+                                            {cardTexts[index].title}
+                                        </h3>
+                                        <p className="text-[12px] lg:text-[16px] font-[500]">
+                                            {cardTexts[index].desc}
+                                        </p>
+                                    </div>
+                                </ScrollAnimation>
                             </div>
                         ))}
                     </div>
@@ -169,16 +200,23 @@ const Roleplay = () => {
                         backgroundPositionX: "50%",
                     }}
                 >
-                    <div className="mt-20">
-                        <Button
-                            text={"Start roleplaying"}
-                            variant={"primary"}
-                            fontSize="20px"
-                            borderRadius="25px"
-                            paddingWidth="25px"
-                            paddingHeight="10px"
-                        />
-                    </div>
+                    <ScrollAnimation
+                        type="slide"
+                        direction="up"
+                        delay={0.1}
+                        duration={0.5}
+                    >
+                        <div className="mt-20">
+                            <Button
+                                text={"Start roleplaying"}
+                                variant={"primary"}
+                                fontSize="20px"
+                                borderRadius="25px"
+                                paddingWidth="25px"
+                                paddingHeight="10px"
+                            />
+                        </div>
+                    </ScrollAnimation>
                 </div>
             </div>
         </>

@@ -11,7 +11,7 @@ const FooterSection = ({
     index: number;
 }) => (
     <ScrollAnimation
-        type="fade"
+        type="slide"
         direction="left"
         delay={0.1 * index}
         duration={0.5}
@@ -115,13 +115,13 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-                    <ScrollAnimation
-                        type="fade"
-                        direction="up"
-                        delay={0.5}
-                        duration={0.5}
-                    >
-                        <div className="flex space-x-4">
+                    <div className="flex space-x-4">
+                        <ScrollAnimation
+                            type="slide"
+                            direction="right"
+                            delay={0.3}
+                            duration={0.5}
+                        >
                             <Link
                                 href="https://linkedin.com"
                                 className="text-gray-600 hover:text-blue-600"
@@ -135,6 +135,14 @@ export default function Footer() {
                                     <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
                                 </svg>
                             </Link>
+                        </ScrollAnimation>
+
+                        <ScrollAnimation
+                            type="slide"
+                            direction="right"
+                            delay={0.2}
+                            duration={0.5}
+                        >
                             <Link
                                 href="https://twitter.com"
                                 className="text-gray-600 hover:text-blue-400"
@@ -148,6 +156,14 @@ export default function Footer() {
                                     <path d="M22 5.8a8.49 8.49 0 01-2.36.64 4.13 4.13 0 001.81-2.27 8.21 8.21 0 01-2.61 1 4.1 4.1 0 00-7 3.74 11.64 11.64 0 01-8.45-4.29 4.16 4.16 0 001.27 5.49 4.09 4.09 0 01-1.86-.52v.05a4.1 4.1 0 003.3 4 4.05 4.05 0 01-1.9.07 4.11 4.11 0 003.83 2.85A8.22 8.22 0 012 18.28a11.57 11.57 0 006.29 1.85A11.59 11.59 0 0020 8.45v-.53a8.43 8.43 0 002-2.12z"></path>
                                 </svg>
                             </Link>
+                        </ScrollAnimation>
+
+                        <ScrollAnimation
+                            type="slide"
+                            direction="right"
+                            delay={0.1}
+                            duration={0.5}
+                        >
                             <Link
                                 href="https://youtube.com"
                                 className="text-gray-600 hover:text-red-600"
@@ -161,15 +177,16 @@ export default function Footer() {
                                     <path d="M23 9.71a8.5 8.5 0 00-.91-4.13 2.92 2.92 0 00-1.72-1A78.36 78.36 0 0012 4.27a78.45 78.45 0 00-8.34.3 2.87 2.87 0 00-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 000 6.48 9.55 9.55 0 00.3 2 3.14 3.14 0 00.71 1.36 2.86 2.86 0 001.49.78 45.18 45.18 0 008.4.31c3.69 0 7.42-.25 8.34-.3a2.92 2.92 0 001.71-1 3.18 3.18 0 00.7-1.34 8.58 8.58 0 00.31-2.05 44.21 44.21 0 00.06-6.07zm-13.82 6.6V7.7l6.73 4.3z"></path>
                                 </svg>
                             </Link>
-                        </div>
-                    </ScrollAnimation>
-                    <ScrollAnimation
-                        type="fade"
-                        direction="left"
-                        delay={0.6}
-                        duration={0.5}
-                    >
-                        <div className="flex flex-col md:flex-row gap-4">
+                        </ScrollAnimation>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row gap-4">
+                        <ScrollAnimation
+                            type="slide"
+                            direction="left"
+                            delay={0.1}
+                            duration={0.5}
+                        >
                             <Link
                                 href="/pricing"
                                 className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 hover:border-blue-500 transition-colors"
@@ -192,7 +209,14 @@ export default function Footer() {
                                     See pricing plans
                                 </span>
                             </Link>
+                        </ScrollAnimation>
 
+                        <ScrollAnimation
+                            type="slide"
+                            direction="left"
+                            delay={0.2}
+                            duration={0.5}
+                        >
                             <Link
                                 href="/sales"
                                 className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 hover:border-blue-500 transition-colors"
@@ -215,7 +239,14 @@ export default function Footer() {
                                     Talk to Sales
                                 </span>
                             </Link>
+                        </ScrollAnimation>
 
+                        <ScrollAnimation
+                            type="slide"
+                            direction="left"
+                            delay={0.3}
+                            duration={0.5}
+                        >
                             <Link
                                 href="/community"
                                 className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 hover:border-blue-500 transition-colors"
@@ -238,8 +269,8 @@ export default function Footer() {
                                     Join our community
                                 </span>
                             </Link>
-                        </div>
-                    </ScrollAnimation>
+                        </ScrollAnimation>
+                    </div>
                 </div>
 
                 <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">

@@ -46,14 +46,14 @@ const Featured: React.FC = () => {
 
     return (
         <div className="py-10">
-            <ScrollAnimation type="fade" direction="up" duration={0.7}>
+            <ScrollAnimation type="slide" direction="up" duration={0.7}>
                 <h2 className="text-center text-[28px] font-bold mt-10 mb-5">
                     Featured in
                 </h2>
             </ScrollAnimation>
             <div className="grid place-items-center grid-cols-2 grid-rows-4 lg:grid-cols-4 transform origin-top scale-[0.75] sm:scale-[1] mb-[-150px] sm:mb-[unset] gap-10 lg:grid-rows-2 max-w-[960px] mx-auto">
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.1}
                     duration={0.5}
@@ -78,7 +78,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.2}
                     duration={0.5}
@@ -118,7 +118,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.3}
                     duration={0.5}
@@ -175,7 +175,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.4}
                     duration={0.5}
@@ -200,7 +200,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.5}
                     duration={0.5}
@@ -248,7 +248,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.6}
                     duration={0.5}
@@ -305,7 +305,7 @@ const Featured: React.FC = () => {
                     </a>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.7}
                     duration={0.5}
@@ -334,7 +334,7 @@ const Featured: React.FC = () => {
                 </ScrollAnimation>
 
                 <ScrollAnimation
-                    type="fade"
+                    type="slide"
                     direction="up"
                     delay={0.8}
                     duration={0.5}
