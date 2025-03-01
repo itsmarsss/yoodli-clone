@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 const casesData = [
     {
-        image: "/google_cloud.png",
+        image: "/cases/google_cloud.png",
         title: "How Google Cloud used Yoodli AI to rollout new GTM pitch certification to 15,000+ employees (with 92% CSAT)",
         cards: [
             {
@@ -25,7 +25,7 @@ const casesData = [
         ],
     },
     {
-        image: "/sandler.png",
+        image: "/cases/sandler.png",
         title: "Sandler and Yoodli Partner to Offer Generative AI Sales Coaching to Sales Professionals and Leaders Worldwide",
         cards: [
             {
@@ -46,7 +46,7 @@ const casesData = [
         ],
     },
     {
-        image: "/korn_ferry.png",
+        image: "/cases/korn_ferry.png",
         title: "Korn Ferry and Yoodli Partner to Bring AI-powered Communication Coaching to Organizations Worldwide",
         cards: [
             {

@@ -41,13 +41,13 @@ const HowToUse = () => {
     const getMedia = (tab: string) => {
         switch (tab) {
             case "GTM Enablement":
-                return "/htu_enablement.webp";
+                return "/htu/enablement.webp";
             case "Learning & Development":
-                return "/htu_learning.webp";
+                return "/htu/learning.webp";
             case "Partner Enablement":
-                return "/htu_partner.webp";
+                return "/htu/partner.webp";
             case "Corporate Communications":
-                return "/htu_corporate.webp";
+                return "/htu/corporate.webp";
             default:
                 return "";
         }

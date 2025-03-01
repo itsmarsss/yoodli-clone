@@ -7,9 +7,9 @@ import Button from "../components/button";
 const Roleplay = () => {
     const [activeCard, setActiveCard] = useState(0);
     const images = [
-        "/yoodli-HIW2.webp",
-        "/yoodli-HIW3.webp",
-        "/yoodli-HIW4.webp",
+        "/roleplay/yoodli-HIW2.webp",
+        "/roleplay/yoodli-HIW3.webp",
+        "/roleplay/yoodli-HIW4.webp",
     ];
 
     const cardTexts = [
