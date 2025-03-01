@@ -6,20 +6,13 @@ import Featured from "./sections/featured";
 import Demo from "./sections/demo";
 import HowToUse from "./sections/howtouse";
 import Roleplay from "./sections/roleplay";
+import Pitch from "./sections/pitch";
+import More from "./sections/more";
+import Footer from "./sections/footer";
 
 export default function Home() {
     return (
         <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link
-                rel="preconnect"
-                href="https://fonts.gstatic.com"
-                crossOrigin="anonymous"
-            />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-                rel="stylesheet"
-            />
             <Nav />
             <Hero />
             <Carousel />
@@ -28,6 +21,9 @@ export default function Home() {
             <Demo />
             <HowToUse />
             <Roleplay />
+            <Pitch />
+            <More />
+            <Footer />
         </>
     );
 }
