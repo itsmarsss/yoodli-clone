@@ -58,8 +58,8 @@ const HowToUse = () => {
             <h2 className="text-center text-[28px] font-bold mt-30 mb-10">
                 How will you use Yoodli?
             </h2>
-            <div className="max-w-[1100px] bg-blue-50 py-5 px-15 rounded-2xl mx-auto shadow-md">
-                <div className="flex flex-row gap-2">
+            <div className="max-w-[1100px] bg-blue-50 p-5 lg:py-5 lg:px-15 rounded-2xl mx-auto shadow-md">
+                <div className="flex flex-row gap-2 overflow-auto">
                     {[
                         "GTM Enablement",
                         "Learning & Development",
@@ -80,14 +80,14 @@ const HowToUse = () => {
                     ))}
                 </div>
 
-                <div className="flex flex-row justify-between mt-[40px] gap-10">
+                <div className="flex flex-col-reverse lg:flex-row justify-between mt-[40px] lg:gap-10">
                     <div className="h-[325px] flex flex-col justify-between py-5 place-self-start">
-                        <div className="h-[175px] flex flex-col justify-between">
+                        <div className="h-[200px] sm:h-[175px] flex flex-col justify-between">
                             {getBullets(activeTab).map(
                                 (bullet: string, index: number) => (
                                     <div
                                         key={index}
-                                        className="flex flex-row items-center ml-5"
+                                        className="flex flex-row items-center sm:ml-5"
                                     >
                                         <div className="w-5 h-5 rounded-full bg-zinc-900 flex items-center justify-center mr-5">
                                             <Check
@@ -109,7 +109,7 @@ const HowToUse = () => {
                         </span>
                     </div>
                     <Image
-                        className="mr-15 mt-[-40px] w-[350px] h-[350px]"
+                        className="mx-auto lg:mr-15 lg:mt-[-40px] w-[280px] lg:h-[280px] lg:w-[350px] lg:h-[350px]"
                         src={getMedia(activeTab)}
                         alt={"GTM Enablement"}
                         width={350}

@@ -48,7 +48,7 @@ const Featured: React.FC = () => {
             <h2 className="text-center text-[28px] font-bold mt-10 mb-5">
                 Featured in
             </h2>
-            <div className="grid place-items-center grid-cols-2 grid-rows-4 md:grid-cols-4 gap-10 md:grid-rows-2 max-w-[960px] mx-auto">
+            <div className="grid place-items-center grid-cols-2 grid-rows-4 lg:grid-cols-4 transform origin-top scale-[0.75] sm:scale-[1] mb-[-150px] sm:mb-[unset] gap-10 lg:grid-rows-2 max-w-[960px] mx-auto">
                 <a
                     className="relative"
                     href="https://www.forbes.com/profile/yoodli/?sh=2c0ffccc7ad0"

@@ -11,13 +11,6 @@
     --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
-}
-
 body {
     color: var(--foreground);
     background: var(--background);
@@ -99,7 +92,6 @@ body {
 
 .navItemMore {
     top: 40px;
-    left: 50%;
     opacity: 0;
     transform-origin: top center;
     transform: translateX(-50%) scale(0.5);

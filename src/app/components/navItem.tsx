@@ -7,12 +7,12 @@ type NavItemProps = {
 
 const NavItem: React.FC<NavItemProps> = ({ text, more }) => {
     return (
-        <div className="relative navMain">
-            <div className="navItem relative font-[500] text-[13px] text-stone-900 cursor-pointer duration-100 hover:text-indigo-500">
+        <div className="navMain relative w-fit text-stone-900 hover:text-indigo-500">
+            <div className="navItem w-fit relative font-[500] text-[13px] md:text-[12px] lg:text-[13px] text-[inherit] cursor-pointer duration-100">
                 {text}
             </div>
             {more && (
-                <div className="navItemMore absolute bg-white shadow-xl rounded-xl flex flex-col w-max flex flex-col overflow-hidden">
+                <div className="navItemMore left-[50%] absolute bg-white shadow-xl rounded-xl flex flex-col w-max flex flex-col overflow-hidden z-10">
                     {more.map((item, index) => (
                         <div
                             key={index}

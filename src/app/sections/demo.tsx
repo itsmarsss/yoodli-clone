@@ -57,13 +57,13 @@ const Demo = () => {
                 )}
             </div>
 
-            <div className="flex flex-col md:flex-row gap-5 md:gap-15 justify-center items-center mt-30">
+            <div className="transform scale-[0.75] sm:scale-[1] flex flex-col lg:flex-row gap-5 lg:gap-15 justify-center items-center mt-30">
                 <a
                     href="https://www.builtinseattle.com/2021/10/19/seattle-future-5-startups-q4-2021"
                     target="_blank"
                 >
-                    <div className="w-[300px] md:w-[200px] h-[100px] bg-sky-500 rounded-2xl flex justify-center items-center px-13 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
-                        <div className="w-[125px] md:w-[100%]">
+                    <div className="w-[300px] lg:w-[200px] h-[100px] bg-sky-500 rounded-2xl flex justify-center items-center px-13 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
+                        <div className="w-[125px] lg:w-[100%]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -82,7 +82,7 @@ const Demo = () => {
                     href="https://www.geekwire.com/2022/seattle-ai-startup-that-helps-professionals-improve-public-speaking-by-analyzing-speech-raises-6m/"
                     target="_blank"
                 >
-                    <div className="w-[300px] md:w-[200px] h-[100px] bg-indigo-500 rounded-2xl flex justify-center items-center px-7 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
+                    <div className="w-[300px] lg:w-[200px] h-[100px] bg-indigo-500 rounded-2xl flex justify-center items-center px-7 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
                         <div className="w-[100%]">
                             <svg
                                 color="#fff"
@@ -105,8 +105,8 @@ const Demo = () => {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <div className="w-[300px] md:w-[200px] h-[100px] bg-sky-500 rounded-2xl flex justify-center items-center px-15 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
-                        <div className="w-[75px] md:w-[100%]">
+                    <div className="w-[300px] lg:w-[200px] h-[100px] bg-sky-500 rounded-2xl flex justify-center items-center px-15 py-5 cursor-pointer hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] duration-250 ease-linear shadow-[0_0_0_0_#272b2c] hover:shadow-[-8px_8px_0_0_#272b2c]">
+                        <div className="w-[75px] lg:w-[100%]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 64 64"

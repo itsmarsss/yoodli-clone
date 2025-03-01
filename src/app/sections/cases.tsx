@@ -72,14 +72,14 @@ const Cases: React.FC = () => {
     return (
         <div className="bg-blue-950 text-white py-[80px] px-[30px]">
             <div className="max-w-[1136px] flex justify-between items-center mb-5 mx-auto">
-                <h2 className="text-[28px] font-bold">
+                <h2 className="text-[20px] sm:text-[28px] font-bold">
                     Check out our case studies
                 </h2>
-                <span className="bg-blue-950 text-[20px] font-bold text-lg flex gap-3 pl-2 rounded-md items-center cursor-pointer duration-100 hover:brightness-120">
-                    See all <ChevronRight size={20} />
+                <span className="bg-blue-950 text-[12px] sm:text-[16px] w-[100px] font-bold text-lg flex gap-3 pl-2 rounded-md items-center cursor-pointer duration-100 hover:brightness-120">
+                    See all <ChevronRight size={16} />
                 </span>
             </div>
-            <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
+            <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
                 {casesData.map((caseItem, index) => (
                     <Case
                         key={index}
