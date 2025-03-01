@@ -19,7 +19,7 @@ const Demo = () => {
                 {isVisible && (
                     <>
                         <Image
-                            className="brightness-90 hover:brightness-80 cursor-pointer"
+                            className="brightness-90 hover:brightness-80 duration-100 cursor-pointer"
                             src="/demo_thumbnail.webp"
                             alt="Yoodli AI for Sales Enablement"
                             width={800}

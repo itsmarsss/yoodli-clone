@@ -4,24 +4,42 @@ import React from "react";
 
 const Featured: React.FC = () => {
     const handleMouseEnter = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        const overlay = document.querySelectorAll(".hover-overlay");
+        if (overlay) {
+            overlay.forEach((element) => {
+                element.parentElement?.removeChild(element);
+            });
+        }
+
         const newDiv = document.createElement("div");
-        newDiv.className = "hover-overlay"; // Add your desired styles for the overlay
-        newDiv.style.position = "absolute";
-        newDiv.style.top = "120%";
-        newDiv.style.left = "-95px";
-        newDiv.style.width = "300px";
-        newDiv.style.height = "190px";
-        newDiv.style.backgroundColor = "#fff"; // Example style
-        newDiv.style.border = "1px solid #000";
-        newDiv.style.borderRadius = "10px";
-        newDiv.style.zIndex = "10"; // Ensure it appears above other elements
+        newDiv.className =
+            "hover-overlay shadow-lg absolute top-[120%] left-[50%] w-[300px] h-fit bg-white border-1 border-zinc-300 rounded-xl z-10 p-4 duration-50";
+
+        const title = document.createElement("span");
+        title.className = "font-bold text-[16px]";
+        title.textContent = event.currentTarget.getAttribute("data-title");
+
+        const para = document.createElement("p");
+        para.className = "text-[14px]";
+        para.textContent = event.currentTarget.getAttribute("data-para");
+
+        newDiv.appendChild(title);
+        newDiv.appendChild(para);
+
         event.currentTarget.appendChild(newDiv);
+
+        setTimeout(() => {
+            newDiv.classList.toggle("show");
+        }, 50);
     };
 
     const handleMouseLeave = (event: React.MouseEvent<HTMLAnchorElement>) => {
         const overlay = event.currentTarget.querySelector(".hover-overlay");
         if (overlay) {
-            event.currentTarget.removeChild(overlay);
+            overlay.classList.toggle("show");
+            setTimeout(() => {
+                overlay.parentElement?.removeChild(overlay);
+            }, 50);
         }
     };
 
@@ -37,6 +55,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Forbes"
+                    data-para="Yoodli Cofounders make Forbes 30 under 30 List for Consumer Technology"
                 >
                     <div className="w-[150px] hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -53,6 +73,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Inc."
+                    data-para="Seattle Startups to Watch in 2023"
                 >
                     <div className="w-[150px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -84,6 +106,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Google Cloud"
+                    data-para="Yoodli boosts confidence of job applicants, presenters, and minorities with automated video coaching platform powered by Google Cloud"
                 >
                     <div className="w-[200px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -132,6 +156,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="The Wall Street Journal"
+                    data-para="ChatGPT Spotlights Microsoft’s Early Efforts to Monetize AI"
                 >
                     <div className="w-[100px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -148,6 +174,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Microsoft for Startups"
+                    data-para="Fueling your startup: why fundraising and investment readiness matter"
                 >
                     <div className="w-[175px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -187,6 +215,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Komo"
+                    data-para="Major Moves: Can Artificial Intelligence improve your public speaking?"
                 >
                     <div className="w-[175px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -235,6 +265,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="GeekWire"
+                    data-para="Here’s how AI graded President Trump’s inauguration speech"
                 >
                     <div className="w-[200px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
@@ -254,6 +286,8 @@ const Featured: React.FC = () => {
                     target="blank"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    data-title="Axios"
+                    data-para="Trump's inauguration word choices give insight into Trump 2.0"
                 >
                     <div className="w-[175px]  hover:transform hover:scale-105 transition-transform duration-250 cursor-pointer">
                         <svg
