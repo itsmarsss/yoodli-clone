@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProp> = ({
     if (variant === "secondary") {
         return (
             <button
-                className={`${baseClasses} w-full lg:w-fit secondary text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-100 hover:brightness-90`}
+                className={`${baseClasses} w-full lg:w-fit secondary text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-200 hover:brightness-90`}
                 data-content={text}
                 style={customStyle}
             >
@@ -47,7 +47,7 @@ const Button: React.FC<ButtonProp> = ({
 
     return (
         <button
-            className={`${baseClasses} ${variantClasses[variant]} w-full lg:w-fit text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-100 hover:brightness-90`}
+            className={`${baseClasses} ${variantClasses[variant]} w-full lg:w-fit text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-200 hover:brightness-90`}
             style={customStyle}
         >
             {text}
