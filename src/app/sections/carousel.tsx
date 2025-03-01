@@ -1,6 +1,52 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const employees = [
+    {
+        name: "Kirstin Parker",
+        role: "Executive Communications Director, Accenture",
+        photo: "/assets/testimonials/kristin_parker.webp",
+        quote: "I work with Fortune 50 execs - Yoodli is my speech coaching assistant. It reinforces my feedback with quantifiable data. Think of Yoodli as the thermometer if I’m the doctor.",
+    },
+    {
+        name: "Jon Bischke",
+        role: "CEO of Ascribe, former Udemy Board Member",
+        photo: "/assets/testimonials/jon_bischke.webp",
+        quote: "As a leader, communication is an extremely important part of my job. However, it’s tough to get real-time feedback. Yoodli feels like a superpower - I can improve with each and every interaction I have.",
+    },
+    {
+        name: "Nicole Kayla",
+        role: "Learning & Development, Google Tech",
+        photo: "/assets/testimonials/nicole_kayla.webp",
+        quote: "We’ve never seen this kind of interest for a soft skills training program—I hear about Yoodli at least once a day from another Googler. Over 400 people attended our first Yoodli webinar!",
+    },
+    {
+        name: "Bryan Ackermann",
+        role: "Head of AI Strategy, Korn Ferry",
+        photo: "/assets/testimonials/brian_ackermann.webp",
+        quote: "The future of coaching is here. All Korn Ferry customers can now get self-paced, judgement-free communication coaching, powered by Yoodli. The perfect augmentation to human coaching.",
+    },
+    {
+        name: "Dave Wright",
+        role: "CEO, Dale Carnegie Texas",
+        photo: "/assets/testimonials/dave_wright.webp",
+        quote: "We’ve built Dale Carnegie Texas AI, powered by Yoodli - my jaw dropped the moment I saw the first demo. Our learners, fellow franchises, and customers have the same reaction. It’s the best way to reinforce live training.",
+    },
+    {
+        name: "Ashraf Mathkour",
+        role: "Head of Mid Market Sales, Uber",
+        photo: "/assets/testimonials/ashraf_mathkour.webp",
+        quote: "I’m finally confident when I present to executives - Yoodli is my team’s secret superpower. It is the smart mirror that we use for onboarding, sales pitches, and negotiations.",
+    },
+    {
+        name: "Craig Valentine",
+        role: "World Champion of Public Speaking",
+        photo: "/assets/testimonials/craig_valentine.webp",
+        quote: "Yoodli enables pitch coaching at scale. It’s customizable and took just minutes to set up. I use it with every student, trainer, and World Championship contestant I train.",
+    },
+];
 
 const Carousel = () => {
     const width = 300; // Adjust based on your item width
@@ -31,9 +77,19 @@ const Carousel = () => {
         return () => clearInterval(interval);
     }, [endOffset]);
 
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % employees.length);
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
-            <div className="text-[28px] font-bold text-center my-10 text-blue-950">
+            <div className="text-[28px] font-bold text-center my-10 mt-20 text-blue-950">
                 Trusted by the world&apos;s best companies...
             </div>
             <div className="overflow-hidden w-full">
@@ -426,6 +482,46 @@ const Carousel = () => {
                         </span>
                     </div>
                 </div>
+            </div>
+
+            <div className="text-[28px] font-bold text-center my-10 text-blue-950">
+                ...and their employees
+            </div>
+
+            <div className="max-w-[600px] mx-auto bg-white rounded-lg p-8 my-12 mb-20 border border-[#524ffc] shadow-[8px_8px_0_0_#524ffc] transform scale-[0.75] md:scale-[1] duration-500 overflow-hidden">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className="flex items-start">
+                            <div className="mr-6 flex-shrink-0">
+                                <img
+                                    src={
+                                        "https://yoodli.ai/" +
+                                        employees[index].photo
+                                    }
+                                    alt={employees[index].name}
+                                    className="w-24 h-24 rounded-full object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold text-gray-800">
+                                    {employees[index].name}
+                                </h3>
+                                <p className="text-gray-600 mb-4">
+                                    {employees[index].role}
+                                </p>
+                                <p className="text-lg italic text-gray-700 leading-relaxed">
+                                    "{employees[index].quote}"
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </>
     );

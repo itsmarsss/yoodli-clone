@@ -16,7 +16,7 @@ const NavItem: React.FC<NavItemProps> = ({ text, more }) => {
                     {more.map((item, index) => (
                         <div
                             key={index}
-                            className="text-stone-900 duration-200 bg-white hover:bg-blue-50 px-7 py-3 cursor-pointer"
+                            className="text-[10px] md:text-[16px] text-stone-900 duration-200 bg-white hover:bg-blue-50 px-3 md:px-7 py-2 md:py-3 cursor-pointer"
                         >
                             {item}
                         </div>
