@@ -1,79 +1,122 @@
 "use client";
 
+import { Check } from "lucide-react";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const HowToUse = () => {
     const [activeTab, setActiveTab] = useState("GTM Enablement");
 
-    const renderContent = () => {
-        switch (activeTab) {
+    const getBullets = (tab: string) => {
+        switch (tab) {
             case "GTM Enablement":
-                return (
-                    <div className="mt-4">
-                        <h3 className="text-xl font-semibold">
-                            GTM Enablement
-                        </h3>
-                        <ul className="list-disc list-inside mt-2">
-                            <li>
-                                Upload your custom content, best practices,
-                                methodology
-                            </li>
-                            <li>
-                                Ramp and certify reps with near-realistic
-                                roleplays
-                            </li>
-                            <li>
-                                Quantify performance, export reports, and track
-                                progress over time
-                            </li>
-                        </ul>
-                    </div>
-                );
+                return [
+                    "Upload your custom content, best practices, methodology",
+                    "Ramp and certify reps with near-realistic roleplays",
+                    "Quantify performance, export reports, and track progress over time",
+                ];
             case "Learning & Development":
-                return (
-                    <div className="mt-4">
-                        Content for Learning & Development
-                    </div>
-                );
+                return [
+                    "Set benchmarks with quantifiable speaking analytics such as pacing, conciseness, and sentence starters",
+                    "Customize scenarios for roleplay practice",
+                    "Track progress over time, in aggregate, across cohorts",
+                ];
             case "Partner Enablement":
-                return (
-                    <div className="mt-4">Content for Partner Enablement</div>
-                );
+                return [
+                    "Upload your custom content and certification rubric",
+                    "Simulate quizzes and credentialing through near-realistic roleplays",
+                    "Quantify performance, export reports, and track progress over time",
+                ];
             case "Corporate Communications":
-                return (
-                    <div className="mt-4">
-                        Content for Corporate Communications
-                    </div>
-                );
+                return [
+                    "Upload your brand guide, talking points, and custom content",
+                    "Simulate realistic AI roleplays (media training, exec comms)",
+                    "Track your progress over time",
+                ];
             default:
-                return null;
+                return [];
+        }
+    };
+
+    const getMedia = (tab: string) => {
+        switch (tab) {
+            case "GTM Enablement":
+                return "/htu_enablement.webp";
+            case "Learning & Development":
+                return "/htu_learning.webp";
+            case "Partner Enablement":
+                return "/htu_partner.webp";
+            case "Corporate Communications":
+                return "/htu_corporate.webp";
+            default:
+                return "";
         }
     };
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text- font-bold">How will you use Yoodli?</h2>
-            <div className="flex space-x-4 mt-4">
-                {[
-                    "GTM Enablement",
-                    "Learning & Development",
-                    "Partner Enablement",
-                    "Corporate Communications",
-                ].map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        className={`px-4 py-2 rounded-lg transition-colors duration-200 ${
-                            activeTab === tab
-                                ? "bg-blue-500 text-white"
-                                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                        }`}
-                    >
-                        {tab}
-                    </button>
-                ))}
+        <div className="p-5 bg-white">
+            <h2 className="text-center text-[28px] font-bold mt-30 mb-10">
+                How will you use Yoodli?
+            </h2>
+            <div className="max-w-[1100px] bg-blue-50 py-5 px-15 rounded-2xl mx-auto shadow-md">
+                <div className="flex flex-row gap-2">
+                    {[
+                        "GTM Enablement",
+                        "Learning & Development",
+                        "Partner Enablement",
+                        "Corporate Communications",
+                    ].map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`py-4 flex-1 transition-colors duration-200 font-[16px] text-stone-900 font-bold border-b-5 cursor-pointer ${
+                                activeTab === tab
+                                    ? "border-stone-900"
+                                    : "border-transparent"
+                            }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
+
+                <div className="flex flex-row justify-between mt-[40px] gap-10">
+                    <div className="h-[325px] flex flex-col justify-between py-5 place-self-start">
+                        <div className="h-[175px] flex flex-col justify-between">
+                            {getBullets(activeTab).map(
+                                (bullet: string, index: number) => (
+                                    <div
+                                        key={index}
+                                        className="flex flex-row items-center ml-5"
+                                    >
+                                        <div className="w-5 h-5 rounded-full bg-zinc-900 flex items-center justify-center mr-5">
+                                            <Check
+                                                size={15}
+                                                strokeWidth={3}
+                                                color="white"
+                                            />
+                                        </div>
+                                        <p className="w-[calc(100%-40px)]">
+                                            {bullet}
+                                        </p>
+                                    </div>
+                                )
+                            )}
+                        </div>
+
+                        <span className="font-bold text-indigo-500 cursor-pointer py-2 px-4 rounded-2xl w-fit hover:bg-indigo-50">
+                            Learn more
+                        </span>
+                    </div>
+                    <Image
+                        className="mr-15 mt-[-40px] w-[350px] h-[350px]"
+                        src={getMedia(activeTab)}
+                        alt={"GTM Enablement"}
+                        width={350}
+                        height={350}
+                    ></Image>
+                </div>
             </div>
-            {renderContent()}
         </div>
     );
 };
