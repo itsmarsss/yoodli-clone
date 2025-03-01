@@ -1,6 +1,7 @@
 import React from "react";
 import Case from "../components/case";
 import { ChevronRight } from "lucide-react";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const casesData = [
     {
@@ -71,22 +72,32 @@ const casesData = [
 const Cases: React.FC = () => {
     return (
         <div className="bg-blue-950 text-white py-[80px] px-[30px]">
-            <div className="max-w-[1136px] flex justify-between items-center mb-5 mx-auto">
-                <h2 className="text-[20px] sm:text-[28px] font-bold">
-                    Check out our case studies
-                </h2>
-                <span className="bg-blue-950 text-[12px] sm:text-[16px] w-[100px] font-bold text-lg flex gap-3 pl-2 rounded-md items-center cursor-pointer duration-100 hover:brightness-120">
-                    See all <ChevronRight size={16} />
-                </span>
-            </div>
+            <ScrollAnimation type="slide" direction="up">
+                <div className="max-w-[1136px] flex justify-between items-center mb-5 mx-auto">
+                    <h2 className="text-[20px] sm:text-[28px] font-bold">
+                        Check out our case studies
+                    </h2>
+                    <ScrollAnimation type="slide" direction="left" delay={0.2}>
+                        <span className="bg-blue-950 text-[12px] sm:text-[16px] w-[100px] font-bold text-lg flex gap-3 pl-2 rounded-md items-center cursor-pointer duration-100 hover:brightness-120">
+                            See all <ChevronRight size={16} />
+                        </span>
+                    </ScrollAnimation>
+                </div>
+            </ScrollAnimation>
             <div className="flex flex-col lg:flex-row gap-5 justify-center items-center">
                 {casesData.map((caseItem, index) => (
-                    <Case
+                    <ScrollAnimation
                         key={index}
-                        image={caseItem.image}
-                        title={caseItem.title}
-                        cards={caseItem.cards}
-                    />
+                        type="slide"
+                        direction="up"
+                        delay={0.1 * (index + 1)}
+                    >
+                        <Case
+                            image={caseItem.image}
+                            title={caseItem.title}
+                            cards={caseItem.cards}
+                        />
+                    </ScrollAnimation>
                 ))}
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 type ButtonProp = {
     text: string;
@@ -26,15 +27,23 @@ const Button: React.FC<ButtonProp> = ({
     if (paddingWidth) customStyle.paddingRight = paddingWidth;
     if (paddingHeight) customStyle.paddingBottom = paddingHeight;
 
+    const buttonVariants = {
+        hover: { scale: 1.05 },
+        tap: { scale: 0.95 },
+    };
+
     if (variant === "secondary") {
         return (
-            <button
+            <motion.button
                 className={`${baseClasses} w-full lg:w-fit secondary text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-200 hover:brightness-90`}
                 data-content={text}
                 style={customStyle}
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
             >
                 {text}
-            </button>
+            </motion.button>
         );
     }
 
@@ -46,12 +55,15 @@ const Button: React.FC<ButtonProp> = ({
     };
 
     return (
-        <button
+        <motion.button
             className={`${baseClasses} ${variantClasses[variant]} w-full lg:w-fit text-[16px] font-[600] px-4 py-2 rounded-md cursor-pointer duration-200 hover:brightness-90`}
             style={customStyle}
+            whileHover="hover"
+            whileTap="tap"
+            variants={buttonVariants}
         >
             {text}
-        </button>
+        </motion.button>
     );
 };
 

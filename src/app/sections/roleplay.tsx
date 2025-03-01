@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "../components/button";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const Roleplay = () => {
     const [activeCard, setActiveCard] = useState(0);
@@ -56,6 +57,8 @@ const Roleplay = () => {
         if (typeof window !== "undefined") {
             const handleResize = () => setWindowWidth(window.innerWidth);
             window.addEventListener("resize", handleResize);
+            handleResize();
+
             return () => window.removeEventListener("resize", handleResize);
         }
     }, []);
@@ -63,9 +66,16 @@ const Roleplay = () => {
     return (
         <>
             <div className="py-20 pb-0 mt-25 bg-[#f6f8ff]">
-                <h2 className="text-center text-[28px] font-bold mb-10">
-                    How Yoodli AI Roleplays work
-                </h2>
+                <ScrollAnimation
+                    type="fade"
+                    direction="up"
+                    delay={0.1}
+                    duration={0.5}
+                >
+                    <h2 className="text-center text-[28px] font-bold mb-10">
+                        How Yoodli AI Roleplays work
+                    </h2>
+                </ScrollAnimation>
 
                 {windowWidth > 1320 && (
                     <div className="flex mx-auto max-w-[1300px] h-[2100px]">

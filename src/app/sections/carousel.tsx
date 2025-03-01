@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const employees = [
     {
@@ -90,10 +91,10 @@ const Carousel = () => {
 
     return (
         <>
-            <div className="text-[28px] font-bold text-center my-10 mt-20 text-blue-950">
+            <ScrollAnimation className="text-[28px] font-bold text-center my-10 mt-20 text-blue-950">
                 Trusted by the world&apos;s best companies...
-            </div>
-            <div className="overflow-hidden w-full">
+            </ScrollAnimation>
+            <ScrollAnimation className="overflow-hidden w-full">
                 <div
                     className="flex flex-row h-[100] gap-20 justify-center items-center"
                     style={{
@@ -483,13 +484,13 @@ const Carousel = () => {
                         </span>
                     </div>
                 </div>
-            </div>
+            </ScrollAnimation>
 
-            <div className="text-[28px] font-bold text-center my-10 text-blue-950">
+            <ScrollAnimation className="text-[28px] font-bold text-center my-10 text-blue-950">
                 ...and their employees
-            </div>
+            </ScrollAnimation>
 
-            <div className="max-w-[600px] mx-auto bg-white rounded-lg p-8 my-12 mb-20 border border-[#524ffc] shadow-[8px_8px_0_0_#524ffc] transform scale-[0.75] md:scale-[1] duration-500 overflow-hidden">
+            <ScrollAnimation className="max-w-[600px] mx-auto bg-white rounded-lg p-8 my-12 mb-20 border border-[#524ffc] shadow-[8px_8px_0_0_#524ffc] transform scale-[0.75] md:scale-[1] duration-500 overflow-hidden">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={index}
@@ -522,7 +523,7 @@ const Carousel = () => {
                         </div>
                     </motion.div>
                 </AnimatePresence>
-            </div>
+            </ScrollAnimation>
         </>
     );
 };

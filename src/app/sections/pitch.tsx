@@ -1,95 +1,117 @@
 import Link from "next/link";
 import Button from "../components/button";
+import ScrollAnimation from "../components/ScrollAnimation";
 
 const Pitch = () => {
     return (
         <div className="bg-indigo-950 text-white py-16 px-4">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div className="flex flex-col items-center text-center">
-                    <div className="mb-4">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="56"
-                            height="56"
-                            fill="none"
-                        >
-                            <g
-                                fill="#fff"
-                                clipPath="url(#icon_clipboard-white_svg__a)"
+                <ScrollAnimation
+                    type="fade"
+                    direction="up"
+                    delay={0.1}
+                    duration={0.5}
+                >
+                    <div className="flex flex-col items-center text-center">
+                        <div className="mb-4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="56"
+                                height="56"
+                                fill="none"
                             >
-                                <path d="m42.763 14.55-.616.6v-1.588a5.724 5.724 0 0 0-5.725-5.725h-2.724V5.34H15.162v2.513h-2.725a5.724 5.724 0 0 0-5.724 5.725v31.234a5.724 5.724 0 0 0 5.724 5.725h23.985a5.724 5.724 0 0 0 5.725-5.725V29.52l7.022-6.892.762-.746-7.184-7.314zm-12.309-3.988c0 .632-.518 1.15-1.151 1.15H19.54a1.156 1.156 0 0 1-1.151-1.15V8.583h12.065zm8.45 34.25a2.49 2.49 0 0 1-2.482 2.481H12.437a2.49 2.49 0 0 1-2.481-2.48V13.577a2.49 2.49 0 0 1 2.481-2.481h2.773a4.37 4.37 0 0 0 4.346 3.843h9.763a4.356 4.356 0 0 0 4.346-3.843h2.774a2.49 2.49 0 0 1 2.48 2.48v4.769l-2.643 2.594a1.54 1.54 0 0 0-1.248-.616h-21.18c-.892 0-1.622.73-1.622 1.622s.73 1.622 1.622 1.622h19.736l-2.967 2.919H13.848c-.892 0-1.622.73-1.622 1.621 0 .892.73 1.622 1.622 1.622h13.46l-2.854 2.806-.097.113H13.864c-.892 0-1.621.73-1.621 1.622s.73 1.622 1.621 1.622h9.682l-1.638 6.357 9.665-2.32 7.347-7.216v12.098zm-13.266-6.26.876-3.357 2.497 2.546zm5.757-2.254-3.39-3.454 14.726-14.466 3.39 3.454z"></path>
-                                <path d="M19.67 38.698h-5.806c-.892 0-1.621.73-1.621 1.622s.73 1.622 1.621 1.622h5.806c.892 0 1.622-.73 1.622-1.622s-.73-1.622-1.622-1.622"></path>
-                            </g>
-                            <defs>
-                                <clipPath id="icon_clipboard-white_svg__a">
-                                    <path
-                                        fill="#fff"
-                                        d="M6.713 5.34h43.235v45.18H6.713z"
-                                    ></path>
-                                </clipPath>
-                            </defs>
-                        </svg>
+                                <g
+                                    fill="#fff"
+                                    clipPath="url(#icon_clipboard-white_svg__a)"
+                                >
+                                    <path d="m42.763 14.55-.616.6v-1.588a5.724 5.724 0 0 0-5.725-5.725h-2.724V5.34H15.162v2.513h-2.725a5.724 5.724 0 0 0-5.724 5.725v31.234a5.724 5.724 0 0 0 5.724 5.725h23.985a5.724 5.724 0 0 0 5.725-5.725V29.52l7.022-6.892.762-.746-7.184-7.314zm-12.309-3.988c0 .632-.518 1.15-1.151 1.15H19.54a1.156 1.156 0 0 1-1.151-1.15V8.583h12.065zm8.45 34.25a2.49 2.49 0 0 1-2.482 2.481H12.437a2.49 2.49 0 0 1-2.481-2.48V13.577a2.49 2.49 0 0 1 2.481-2.481h2.773a4.37 4.37 0 0 0 4.346 3.843h9.763a4.356 4.356 0 0 0 4.346-3.843h2.774a2.49 2.49 0 0 1 2.48 2.48v4.769l-2.643 2.594a1.54 1.54 0 0 0-1.248-.616h-21.18c-.892 0-1.622.73-1.622 1.622s.73 1.622 1.622 1.622h19.736l-2.967 2.919H13.848c-.892 0-1.622.73-1.622 1.621 0 .892.73 1.622 1.622 1.622h13.46l-2.854 2.806-.097.113H13.864c-.892 0-1.621.73-1.621 1.622s.73 1.622 1.621 1.622h9.682l-1.638 6.357 9.665-2.32 7.347-7.216v12.098zm-13.266-6.26.876-3.357 2.497 2.546zm5.757-2.254-3.39-3.454 14.726-14.466 3.39 3.454z"></path>
+                                    <path d="M19.67 38.698h-5.806c-.892 0-1.621.73-1.621 1.622s.73 1.622 1.621 1.622h5.806c.892 0 1.622-.73 1.622-1.622s-.73-1.622-1.622-1.622"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="icon_clipboard-white_svg__a">
+                                        <path
+                                            fill="#fff"
+                                            d="M6.713 5.34h43.235v45.18H6.713z"
+                                        ></path>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold mb-4">
+                            Built around your method
+                        </h3>
+                        <p className="text-lg">
+                            Yoodli trains employees using your brand voice and
+                            best practices
+                        </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">
-                        Built around your method
-                    </h3>
-                    <p className="text-lg">
-                        Yoodli trains employees using your brand voice and best
-                        practices
-                    </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center">
-                    <div className="mb-4">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="56"
-                            height="56"
-                            fill="none"
-                        >
-                            <path
-                                fill="#fff"
-                                d="M52.775 9.478 51.04 4.895 46.457 6.63c-5.499 2.095-8.968 7.201-9.296 12.733-3.273-2.193-7.496-2.848-11.424-1.342l-4.19 1.604 1.605 4.19c1.898 4.975 6.644 8.052 11.685 8.052 1.473 0 2.979-.262 4.419-.818l.196-.066a13.1 13.1 0 0 1-1.669 8.412c-3.699 6.449-11.947 8.675-18.396 4.976-5.957-3.437-8.314-10.736-5.695-16.923l2.75 5.696 4.19-2.03-5.926-12.34-12.34 5.925 2.03 4.222 4.615-2.226c-2.815 8.085.393 17.316 8.085 21.702a18.05 18.05 0 0 0 9.002 2.422 18.22 18.22 0 0 0 15.777-9.1c2.324-4.026 2.946-8.837 1.865-13.322l.688-.261a14.44 14.44 0 0 0 8.052-7.594 14.4 14.4 0 0 0 .327-11.064zM27.538 22.342c3.928-1.375 8.281.556 9.852 4.419-3.928 1.407-8.281-.557-9.852-4.42m15.188 1.473-.23.098-.098-.23c-1.93-5.073.622-10.735 5.696-12.667l.229-.098.098.23c1.931 5.073-.622 10.736-5.695 12.667"
-                            ></path>
-                        </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">Always fresh</h3>
-                    <p className="text-lg">
-                        Yoodli auto-updates as your learning content changes
-                    </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center">
-                    <div className="mb-4">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="56"
-                            height="56"
-                            fill="none"
-                        >
-                            <g clipPath="url(#icon_triangle-white_svg__a)">
+                </ScrollAnimation>
+                <ScrollAnimation
+                    type="fade"
+                    direction="up"
+                    delay={0.2}
+                    duration={0.5}
+                >
+                    <div className="flex flex-col items-center text-center">
+                        <div className="mb-4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="56"
+                                height="56"
+                                fill="none"
+                            >
                                 <path
                                     fill="#fff"
-                                    d="M50.432 37.325c-1.602-4.227-5.932-6.613-10.227-6l-5.216-9.034c.648-.716 1.227-1.534 1.636-2.454 1.023-2.319 1.125-4.876.205-7.262-1.841-4.84-7.33-7.295-12.205-5.455-4.875 1.876-7.33 7.33-5.489 12.24a9.5 9.5 0 0 0 1.841 2.965l-5.25 9.069a9.3 9.3 0 0 0-4.704.477c-2.353.886-4.228 2.659-5.285 4.977-1.022 2.318-1.125 4.875-.204 7.262 1.432 3.784 5.045 6.102 8.864 6.102q1.688 0 3.375-.614c2.522-.954 4.363-2.897 5.352-5.216h9.75a9.46 9.46 0 0 0 8.728 5.83q1.688 0 3.375-.614c4.875-1.875 7.33-7.33 5.488-12.239zM26.262 11.45a5.2 5.2 0 0 1 1.704-.307 4.89 4.89 0 0 1 4.534 3.103c.477 1.193.41 2.522-.102 3.716a4.94 4.94 0 0 1-2.693 2.556c-2.489.955-5.284-.306-6.24-2.795-.954-2.489.308-5.284 2.796-6.239zM24.83 24.882c1.022.375 2.08.58 3.17.58 1.091 0 2.114-.205 3.137-.546l4.772 8.284c-1.261.955-2.318 2.182-2.966 3.648a9.6 9.6 0 0 0-.75 2.898h-8.42a8.6 8.6 0 0 0-.546-2.387c-.647-1.738-1.806-3.136-3.17-4.193l4.773-8.25zm-8.694 20.353c-2.488.954-5.284-.307-6.238-2.796-.478-1.193-.41-2.523.102-3.716a4.94 4.94 0 0 1 2.693-2.557 5.2 5.2 0 0 1 1.705-.306 4.89 4.89 0 0 1 4.534 3.102c.954 2.488-.307 5.284-2.796 6.238zm27.171 0c-2.489.954-5.284-.307-6.239-2.796-.477-1.193-.409-2.523.103-3.716a4.94 4.94 0 0 1 2.693-2.557 5.2 5.2 0 0 1 1.705-.306 4.89 4.89 0 0 1 4.534 3.102c.954 2.488-.307 5.284-2.796 6.238z"
+                                    d="M52.775 9.478 51.04 4.895 46.457 6.63c-5.499 2.095-8.968 7.201-9.296 12.733-3.273-2.193-7.496-2.848-11.424-1.342l-4.19 1.604 1.605 4.19c1.898 4.975 6.644 8.052 11.685 8.052 1.473 0 2.979-.262 4.419-.818l.196-.066a13.1 13.1 0 0 1-1.669 8.412c-3.699 6.449-11.947 8.675-18.396 4.976-5.957-3.437-8.314-10.736-5.695-16.923l2.75 5.696 4.19-2.03-5.926-12.34-12.34 5.925 2.03 4.222 4.615-2.226c-2.815 8.085.393 17.316 8.085 21.702a18.05 18.05 0 0 0 9.002 2.422 18.22 18.22 0 0 0 15.777-9.1c2.324-4.026 2.946-8.837 1.865-13.322l.688-.261a14.44 14.44 0 0 0 8.052-7.594 14.4 14.4 0 0 0 .327-11.064zM27.538 22.342c3.928-1.375 8.281.556 9.852 4.419-3.928 1.407-8.281-.557-9.852-4.42m15.188 1.473-.23.098-.098-.23c-1.93-5.073.622-10.735 5.696-12.667l.229-.098.098.23c1.931 5.073-.622 10.736-5.695 12.667"
                                 ></path>
-                            </g>
-                            <defs>
-                                <clipPath id="icon_triangle-white_svg__a">
+                            </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold mb-4">
+                            Always fresh
+                        </h3>
+                        <p className="text-lg">
+                            Yoodli auto-updates as your learning content changes
+                        </p>
+                    </div>
+                </ScrollAnimation>
+                <ScrollAnimation
+                    type="fade"
+                    direction="up"
+                    delay={0.3}
+                    duration={0.5}
+                >
+                    <div className="flex flex-col items-center text-center">
+                        <div className="mb-4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="56"
+                                height="56"
+                                fill="none"
+                            >
+                                <g clipPath="url(#icon_triangle-white_svg__a)">
                                     <path
                                         fill="#fff"
-                                        d="M4.92 6.507h46.16v43.67H4.92z"
+                                        d="M50.432 37.325c-1.602-4.227-5.932-6.613-10.227-6l-5.216-9.034c.648-.716 1.227-1.534 1.636-2.454 1.023-2.319 1.125-4.876.205-7.262-1.841-4.84-7.33-7.295-12.205-5.455-4.875 1.876-7.33 7.33-5.489 12.24a9.5 9.5 0 0 0 1.841 2.965l-5.25 9.069a9.3 9.3 0 0 0-4.704.477c-2.353.886-4.228 2.659-5.285 4.977-1.022 2.318-1.125 4.875-.204 7.262 1.432 3.784 5.045 6.102 8.864 6.102q1.688 0 3.375-.614c2.522-.954 4.363-2.897 5.352-5.216h9.75a9.46 9.46 0 0 0 8.728 5.83q1.688 0 3.375-.614c4.875-1.875 7.33-7.33 5.488-12.239zM26.262 11.45a5.2 5.2 0 0 1 1.704-.307 4.89 4.89 0 0 1 4.534 3.103c.477 1.193.41 2.522-.102 3.716a4.94 4.94 0 0 1-2.693 2.556c-2.489.955-5.284-.306-6.24-2.795-.954-2.489.308-5.284 2.796-6.239zM24.83 24.882c1.022.375 2.08.58 3.17.58 1.091 0 2.114-.205 3.137-.546l4.772 8.284c-1.261.955-2.318 2.182-2.966 3.648a9.6 9.6 0 0 0-.75 2.898h-8.42a8.6 8.6 0 0 0-.546-2.387c-.647-1.738-1.806-3.136-3.17-4.193l4.773-8.25zm-8.694 20.353c-2.488.954-5.284-.307-6.238-2.796-.478-1.193-.41-2.523.102-3.716a4.94 4.94 0 0 1 2.693-2.557 5.2 5.2 0 0 1 1.705-.306 4.89 4.89 0 0 1 4.534 3.102c.954 2.488-.307 5.284-2.796 6.238zm27.171 0c-2.489.954-5.284-.307-6.239-2.796-.477-1.193-.409-2.523.103-3.716a4.94 4.94 0 0 1 2.693-2.557 5.2 5.2 0 0 1 1.705-.306 4.89 4.89 0 0 1 4.534 3.102c.954 2.488-.307 5.284-2.796 6.238z"
                                     ></path>
-                                </clipPath>
-                            </defs>
-                        </svg>
+                                </g>
+                                <defs>
+                                    <clipPath id="icon_triangle-white_svg__a">
+                                        <path
+                                            fill="#fff"
+                                            d="M4.92 6.507h46.16v43.67H4.92z"
+                                        ></path>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold mb-4">
+                            Consistency across your org
+                        </h3>
+                        <p className="text-lg">
+                            Provide consistent training at scale
+                        </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">
-                        Consistency across your org
-                    </h3>
-                    <p className="text-lg">
-                        Provide consistent training at scale
-                    </p>
-                </div>
+                </ScrollAnimation>
             </div>
 
             <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
@@ -124,32 +146,48 @@ const Pitch = () => {
                         </defs>
                     </svg>
                 </div>
-                <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold mb-4">
-                        Yoodli is SOC 2 Type 2 certified
-                    </h3>
-                    <p className="text-lg">
-                        Visit our{" "}
-                        <Link href="/trust" className="underline font-medium">
-                            Trust Center
-                        </Link>{" "}
-                        to learn more
-                    </p>
-                </div>
+                <ScrollAnimation
+                    type="fade"
+                    direction="up"
+                    delay={0.1}
+                    duration={0.5}
+                >
+                    <div className="text-center md:text-left">
+                        <h3 className="text-2xl font-bold mb-4">
+                            Yoodli is SOC 2 Type 2 certified
+                        </h3>
+                        <p className="text-lg">
+                            Visit our{" "}
+                            <Link
+                                href="/trust"
+                                className="underline font-medium"
+                            >
+                                Trust Center
+                            </Link>{" "}
+                            to learn more
+                        </p>
+                    </div>
+                </ScrollAnimation>
             </div>
-
-            <div className="flex justify-center">
-                <div>
-                    <Button
-                        text={"Talk to Sales"}
-                        variant={"primary"}
-                        fontSize="20px"
-                        borderRadius="25px"
-                        paddingWidth="25px"
-                        paddingHeight="10px"
-                    />
+            <ScrollAnimation
+                type="fade"
+                direction="right"
+                delay={0.2}
+                duration={0.5}
+            >
+                <div className="flex justify-center">
+                    <div>
+                        <Button
+                            text={"Talk to Sales"}
+                            variant={"primary"}
+                            fontSize="20px"
+                            borderRadius="25px"
+                            paddingWidth="25px"
+                            paddingHeight="10px"
+                        />
+                    </div>
                 </div>
-            </div>
+            </ScrollAnimation>
         </div>
     );
 };

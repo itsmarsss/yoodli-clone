@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/button";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 const phrases = [
     "pitch certification",
@@ -32,10 +33,25 @@ const Hero: React.FC = () => {
         if (typeof window !== "undefined") {
             const handleResize = () => setWindowWidth(window.innerWidth);
             window.addEventListener("resize", handleResize);
+            handleResize();
 
             return () => window.removeEventListener("resize", handleResize);
         }
     }, []);
+
+    // Fade in animation variants
+    const fadeInVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: i * 0.2,
+                duration: 0.5,
+                ease: "easeOut",
+            },
+        }),
+    };
 
     return (
         <section
@@ -48,7 +64,13 @@ const Hero: React.FC = () => {
             }}
         >
             <div className="flex-1 max-w-[620px]">
-                <div className="flex flex-col sm:flex-row sm:gap-2 lg:flex-col">
+                <motion.div
+                    className="flex flex-col sm:flex-row sm:gap-2 lg:flex-col"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInVariants}
+                    custom={0}
+                >
                     <h1 className="text-[26px] mt-[1px] sm:text-[32px] lg:text-[40px] font-bold w-fit lg:w-full">
                         AI Roleplays for
                     </h1>
@@ -84,13 +106,25 @@ const Hero: React.FC = () => {
                             </div>
                         </div>
                     </h2>
-                </div>
-                <p className="mt-4 text-[16px] text-stone-900 font-[500]">
+                </motion.div>
+                <motion.p
+                    className="mt-4 text-[16px] text-stone-900 font-[500]"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInVariants}
+                    custom={1}
+                >
                     Improve your communication skills with private, real-time,
                     and judgment-free roleplay coaching — powered by AI. Like
                     Grammarly, but for speech!
-                </p>
-                <div className="mt-6 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 xl:gap-6">
+                </motion.p>
+                <motion.div
+                    className="mt-6 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 xl:gap-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInVariants}
+                    custom={2}
+                >
                     <Button
                         text="Start roleplaying"
                         variant="primary"
@@ -125,17 +159,29 @@ const Hero: React.FC = () => {
                                   paddingHeight: "10px",
                               })}
                     />
-                </div>
-                <div className="flex items-center mt-6">
+                </motion.div>
+                <motion.div
+                    className="flex items-center mt-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={fadeInVariants}
+                    custom={3}
+                >
                     <div className="w-4 h-4 rounded-full bg-zinc-400 flex items-center justify-center mr-3">
                         <Check size={12} strokeWidth={3} color="white" />
                     </div>
                     <span className="text-[16px] text-zinc-400 font-[700]">
                         SOC 2 Type 2 certified and GDPR compliant
                     </span>
-                </div>
+                </motion.div>
             </div>
-            <div className="mt-8 md:mt-0 w-[400px] h-[390px] hidden lg:block">
+            <motion.div
+                className="mt-8 md:mt-0 w-[400px] h-[390px] hidden lg:block"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInVariants}
+                custom={1}
+            >
                 <video
                     src="/hero_video.webm"
                     autoPlay
@@ -144,7 +190,7 @@ const Hero: React.FC = () => {
                     playsInline
                     className="w-[390px] h-full"
                 />
-            </div>
+            </motion.div>
         </section>
     );
 };

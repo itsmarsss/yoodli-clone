@@ -1,20 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavItem from "./navItem";
 import Button from "./button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Nav: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navVariants = {
+        hidden: { y: -100 },
+        visible: { 
+            y: 0,
+            transition: { type: 'spring', stiffness: 100, damping: 20 }
+        }
+    };
+
     return (
         <>
-            <nav className="bg-white sticky top-0 z-50 shadow-md px-2">
+            <motion.nav 
+                className={`bg-white sticky top-0 z-50 shadow-md px-2 transition-all duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}
+                initial="hidden"
+                animate="visible"
+                variants={navVariants}
+            >
                 <div className="flex items-center p-4 max-w-[1984px] mx-auto">
                     <div className="flex gap-2">
                         <Image
@@ -94,7 +118,7 @@ const Nav: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
 
             <div
                 className={`${
