@@ -50,22 +50,24 @@ const Roleplay = () => {
             });
     }, []);
 
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
 
     useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        if (typeof window !== "undefined") {
+            const handleResize = () => setWindowWidth(window.innerWidth);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
     }, []);
 
     return (
         <>
-            <div className="p-20 pb-0 mt-25 bg-[#f6f8ff]">
+            <div className="py-20 pb-0 mt-25 bg-[#f6f8ff]">
                 <h2 className="text-center text-[28px] font-bold mb-10">
                     How Yoodli AI Roleplays work
                 </h2>
 
-                {windowWidth > 1470 && (
+                {windowWidth > 1320 && (
                     <div className="flex mx-auto max-w-[1300px] h-[2100px]">
                         <div
                             className="relative w-[578px] h-[464px] sticky top-[50%] transform translate-y-[-50%] left-0 ml-32 mt-80 p-[64px] rounded-xl"
@@ -76,7 +78,7 @@ const Roleplay = () => {
                         >
                             {images.map((src, index) => (
                                 <div
-                                    key={index}
+                                    key={"image-" + index}
                                     className={`absolute top-[64px] left-[64px] w-[448px] h-[333px] transition-opacity duration-500 ${
                                         index === activeCard
                                             ? "opacity-100"
@@ -85,7 +87,7 @@ const Roleplay = () => {
                                 >
                                     <Image
                                         src={src}
-                                        alt={`Photo ${index + 1}`}
+                                        alt={cardTexts[index].title}
                                         layout="fill"
                                         className="rounded-lg w-[448px] h-[333px]"
                                     />
@@ -95,7 +97,7 @@ const Roleplay = () => {
                         <div className="h-screen space-y-120 p-5 mt-60 transform translate-x-[-60px]">
                             {cardTexts.map((cardText, index) => (
                                 <div
-                                    key={index}
+                                    key={"card-" + index}
                                     className="w-[560px] h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
                                     data-index={index}
                                 >
@@ -110,12 +112,12 @@ const Roleplay = () => {
                         </div>
                     </div>
                 )}
-                {windowWidth <= 1470 && (
-                    <div className="w-full h-fit flex flex-col gap-10 mb-35 justify-center align-center max-w-[600px] mx-auto">
+                {windowWidth <= 1320 && (
+                    <div className="px-10 w-full h-fit flex flex-col gap-10 mb-35 justify-center align-center max-w-[600px] mx-auto">
                         {images.map((src, index) => (
-                            <div>
+                            <div key={"image-cont-" + index}>
                                 <div
-                                    key={index}
+                                    key={"image-" + index}
                                     className="grid place-item-center w-full p-5 pb-0 rounded-2xl shadow-sm"
                                     style={{
                                         background:
@@ -124,14 +126,14 @@ const Roleplay = () => {
                                 >
                                     <Image
                                         src={src}
-                                        alt={`Photo ${index + 1}`}
+                                        alt={cardTexts[index].title}
                                         className="rounded-lg w-fit"
                                         width={1000}
                                         height={100}
                                     />
                                 </div>
                                 <div
-                                    key={index + 1}
+                                    key={"card-" + index}
                                     className="w-full h-fit p-[32px] bg-white rounded-2xl shadow-sm card"
                                     data-index={index}
                                 >

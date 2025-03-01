@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface CardProps {
     title: string;
@@ -17,10 +18,12 @@ const Case: React.FC<CaseProps> = ({ image, title, cards }) => {
         <div className="relative w-[100%] lg:max-w-[368px]">
             <div className="text-center z-1 p-6 bg-white z-2 rounded-xl cursor-pointer duration-250 ease-linear hover:transform hover:translate-y-[-8px] hover:translate-x-[8px] shadow-[0_0_0_0_#524ffc] hover:shadow-[-8px_8px_0_0_#524ffc]">
                 <div className="flex justify-center items-center max-h-[200px] overflow-hidden rounded-md">
-                    <img
+                    <Image
                         src={image}
                         alt={title}
                         className="w-full h-full object-cover"
+                        width={368}
+                        height={100}
                     />
                 </div>
 

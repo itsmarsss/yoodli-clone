@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const employees = [
     {
@@ -53,10 +54,10 @@ const Carousel = () => {
     const totalItems = 14;
     const totalWidth = totalItems * width;
     const startOffset = 40;
-    const endOffset =
-        typeof window !== "undefined"
-            ? -totalWidth + window.innerWidth - 40
-            : 0;
+    let endOffset = 0;
+    if (typeof window !== "undefined") {
+        endOffset = -totalWidth + window.innerWidth - 40;
+    }
 
     const [offset, setOffset] = useState(startOffset);
 
@@ -499,13 +500,12 @@ const Carousel = () => {
                     >
                         <div className="flex items-start">
                             <div className="mr-6 flex-shrink-0">
-                                <img
-                                    src={
-                                        "https://yoodli.ai/" +
-                                        employees[index].photo
-                                    }
+                                <Image
+                                    src={employees[index].photo}
                                     alt={employees[index].name}
                                     className="w-24 h-24 rounded-full object-cover"
+                                    width={96}
+                                    height={96}
                                 />
                             </div>
                             <div>
@@ -516,7 +516,7 @@ const Carousel = () => {
                                     {employees[index].role}
                                 </p>
                                 <p className="text-lg italic text-gray-700 leading-relaxed">
-                                    "{employees[index].quote}"
+                                    &quot;{employees[index].quote}&quot;
                                 </p>
                             </div>
                         </div>
