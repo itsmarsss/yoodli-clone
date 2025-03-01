@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
                 backgroundPositionY: "bottom",
             }}
         >
-            <div className="flex-1 max-w-[750px]">
+            <div className="flex-1 max-w-[620px]">
                 <h1 className="text-[40px] font-bold">AI Roleplays for</h1>
                 <h2 className="text-[40px] font-bold mt-2">
                     <div

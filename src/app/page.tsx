@@ -5,6 +5,7 @@ import Cases from "./sections/cases";
 import Featured from "./sections/featured";
 import Demo from "./sections/demo";
 import HowToUse from "./sections/howtouse";
+import Roleplay from "./sections/roleplay";
 
 export default function Home() {
     return (
@@ -26,6 +27,7 @@ export default function Home() {
             <Featured />
             <Demo />
             <HowToUse />
+            <Roleplay />
         </>
     );
 }
